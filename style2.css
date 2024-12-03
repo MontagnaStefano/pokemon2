@@ -1,0 +1,133 @@
+/* Contenitore principale del Pokédex */
+body {
+    font-family: 'Verdana', sans-serif;
+    background: linear-gradient(180deg, #d0e0f0 0%, #a8c0e8 100%);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Titolo del Pokédex */
+#titleContainer {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+#title {
+    color: #FFCB05; /* Giallo brillante */
+    font-weight: bold;
+    font-size: 50px;
+    text-shadow: 2px 2px 5px #3a4ca1, 0 0 10px #00A9E0, 0 0 20px #00A9E0; /* Ombre luminose */
+    margin: 0;
+    font-family: 'Press Start 2P', cursive; /* Font pixelato */
+    -webkit-text-stroke: 2px black;
+    text-align: center;
+    white-space: nowrap;
+}
+
+
+/* Contenitore della lista dei Pokémon */
+#pokedexListContainer {
+    background: linear-gradient(180deg, #ffffff 0%, #dce7f5 100%);
+    border: 4px solid #4f81bd;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    max-width: 80%;
+    overflow-y: auto;
+}
+
+/* Lista del Pokédex */
+#pokedex-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+/* Stile delle card Pokémon */
+.card {
+    background: linear-gradient(180deg, #f4f8fd 0%, #eef5ff 100%);
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 2px solid #4f81bd;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+}
+
+/* Immagini dei Pokémon */
+.card img {
+    width: 120px;
+    height: auto;
+    margin-bottom: 10px;
+    border: 2px solid #4f81bd;
+    border-radius: 10px;
+    background: #ffffff;
+    padding: 5px;
+}
+
+/* Nome del Pokémon */
+.card h3 {
+    font-size: 16px;
+    margin: 0;
+    font-weight: bold;
+    color: #2c3e50;
+    text-align: center;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* Pulsante "Libera" */
+.card button {
+    background: linear-gradient(180deg, #ff6f61 0%, #ff3d2e 100%);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 12px;
+    padding: 8px 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.card button:hover {
+    background: linear-gradient(180deg, #ff574a 0%, #e63020 100%);
+    transform: scale(1.05);
+}
+
+/* Contenitore del pulsante "Torna alla Home" */
+#backHome {
+    position: absolute; /* Posizionamento assoluto per la posizione fissa */
+    top: 20px; /* Distanza dal bordo superiore */
+    left: 20px; /* Distanza dal bordo sinistro */
+}
+
+#backHomeButton {
+    background: linear-gradient(180deg, #ff6f61 0%, #ff3d2e 100%);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+#backHomeButton:hover {
+    background: linear-gradient(180deg, #ff574a 0%, #e63020 100%);
+    transform: scale(1.05);
+}
+

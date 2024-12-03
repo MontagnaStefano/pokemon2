@@ -1,0 +1,206 @@
+/* Stile generale */
+body {
+    font-family: 'Verdana', sans-serif;
+    background: linear-gradient(180deg, #b6d4e7 0%, #7b9fd8 100%);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden; /* Niente scroll */
+}
+
+/* Contenitore principale */
+#infoContainer {
+    display: flex;
+    flex-direction: column;
+    
+    justify-content: space-around;
+    background: linear-gradient(180deg, #e0eafc 0%, #cfdef3 100%);
+    border: 4px solid #4f81bd;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 600px; /* Adatto a schermi larghi */
+    height: 100%; /* Adatto a schermi più alti */
+    padding: 10px 20px;
+    box-sizing: border-box;
+    overflow-x: auto;
+}
+
+/* Sprite Pokémon */
+#pokemonSprite {
+    max-width: 150px; /* Limita la dimensione massima */
+    max-height: 150px;
+    width: auto;
+    height: auto;
+    margin-bottom: 10px;
+    border: 2px solid #4f81bd;
+    border-radius: 10px;
+    background: #ffffff;
+    padding: 5px;
+    object-fit: contain; /* Gestisce bene sprite grandi */
+    
+     /* Centra la sprite nel suo contenitore */
+     display: block; /* Rende l'elemento un blocco, quindi occupa una riga intera */
+     margin-left: auto;  /* Allinea a sinistra */
+     margin-right: auto; /* Allinea a destra */
+}
+
+/* Nome del Pokémon */
+#pokemonName {
+    font-size: 20px;
+    font-weight: bold;
+    color: #2c3e50;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+/* Contenitore dei dettagli */
+#pokemonDetails {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    flex-grow: 1;
+    overflow-y: auto; /* Permette lo scrolling solo dentro questo div */
+    padding-right: 10px;
+}
+
+#pokemonDetails h2 {
+    font-size: 16px;
+    color: #2e5c99;
+    border-bottom: 2px solid #4f81bd;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+    width: 100%;
+    text-align: left;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    text-align: left;
+}
+
+ul li {
+    font-size: 14px;
+    color: #444;
+    margin: 5px 0;
+    text-align: left;
+    padding: 5px;
+    border: 1px solid #dce3f1;
+    border-radius: 5px;
+    background: #f4f8fd;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Contenitore delle statistiche */
+.stat-container {
+    display: flex;
+    align-items: start;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #333;
+    padding: 5px;
+    border: 1px solid #dce3f1;
+    border-radius: 10px;
+    background: #eef5ff;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Nome della statistica */
+.stat-label {
+    width: 120px; /* Più spazio per i nomi */
+    text-align: left;
+    margin-right: 20px; /* Maggiore distanza tra nome e barra */
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+/* Barra di progresso (parte grigia) */
+/* Barra di progresso (parte grigia) */
+.progress-bar {
+    position: relative;
+    flex-grow: 0; /* Impedisce alla barra di espandersi oltre una certa lunghezza */
+    height: 20px;  /* Altezza costante della barra */
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+    width: 100%; /* Imposta la barra di base a 100% per il contenitore, ma sarà limitata dalla lunghezza della barra riempita */
+    max-width: 300px; /* Impedisce alla barra di crescere oltre 300px di larghezza */
+    margin-left: 10px; /* Spazio tra la barra e la statistica */
+}
+
+/* Parte riempita della barra (verde) */
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(180deg, #76c7c0 0%, #1eb6ab 100%);
+    text-align: right;
+    padding-right: 10px;  /* Maggiore spazio per i numeri */
+    color: white;
+    line-height: 15px; /* Centra verticalmente */
+    border-radius: 10px 0 0 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: width 0.5s ease-in-out;
+    min-width: 7%; /* Impostato a una percentuale minima */
+    width: auto; /* Impostato a 0, ma aggiornato dinamicamente con JavaScript */
+}
+
+
+/* Pulsante "Torna al Pokédex" */
+#backButton {
+    width: 90%; /* Adattato */
+    max-width: 150px;
+    background: linear-gradient(180deg, #ff6f61 0%, #ff3d2e 100%);
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    margin-top: 10px;margin-left: 37%;
+    
+}
+
+#backButton:hover {
+    background: linear-gradient(180deg, #ff574a 0%, #e63020 100%);
+    transform: scale(1.05);
+    
+    margin-left: 37%;
+}
+
+/* Stile per la lista dei tipi */
+#typeList {
+    display: flex; /* Usa flexbox per allineare le immagini orizzontalmente */
+    flex-wrap: wrap; /* Consente il ritorno a capo delle immagini se non ci sta tutto nella stessa riga */
+    justify-content: center; /* Centra le immagini nella riga */
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+/* Stile per ogni immagine dei tipi */
+#typeList li {
+    margin: 10px; /* Spaziatura tra le immagini */
+}
+
+/* Stile per le immagini dei tipi */
+#typeList img {
+    width: 90px;  /* Aumenta la larghezza delle immagini */
+    height: 60px; /* Aumenta l'altezza delle immagini per renderle più lunghe */
+    object-fit: contain; /* Assicura che l'immagine non venga deformata */
+    border-radius: 5px; /* Aggiungi angoli arrotondati (se desiderato) */
+    box-shadow: none;  /* Rimuovi l'ombra */
+}

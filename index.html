@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scroll dal basso verso l'erba</title>
+    <style>
+        body {
+            margin: 0;
+            height: 420vh; /* Pagina più alta per consentire lo scroll */
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            overflow: hidden;
+        }
+
+        #immagine {
+            position: relative;
+            top: 10%; /* La foto parte dal basso della finestra */
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%; /* L'immagine occupa tutta la larghezza */
+        }
+
+        #gif {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 999;
+            width: 100px; /* Dimensione originale della GIF */ 
+            height: auto; 
+        }
+
+        #trigger-div {
+            position: absolute;
+            bottom: 10%; /* Posiziona il div nella parte inferiore */
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 50px;
+            background-color: transparent;
+            z-index: 10;
+        }
+    </style>
+</head>
+<body>
+
+   <!-- Caricamento della musica di sfondo in loop -->
+   <audio id="backgroundMusic" loop autoplay>
+    <source src="traccia1.mp3" type="audio/mpeg">
+    Il tuo browser non supporta il formato audio.
+</audio>
+
+    <div>
+        <img id="gif" src="idle.png" alt="GIF animata">
+    </div>
+
+    <img id="immagine" src="IMG_20241120_214544.jpg" alt="Immagine con erba">
+
+    <!-- Div che cambia la pagina -->
+    <div id="trigger-div"></div>
+
+
+
+    <script>
+        const gif = document.getElementById('gif');
+        const triggerDiv = document.getElementById('trigger-div');
+
+        function isColliding(el1, el2) {
+            const rect1 = el1.getBoundingClientRect();
+            const rect2 = el2.getBoundingClientRect();
+
+            return !(
+                rect1.top > rect2.bottom ||
+                rect1.bottom < rect2.top ||
+                rect1.right < rect2.left ||
+                rect1.left > rect2.right
+            );
+        }
+
+        function checkCollision() {
+            if (isColliding(gif, triggerDiv)) {
+                // Azione: cambia la pagina
+                window.location.href = "erbaprima.html"; // Reindirizza a una nuova pagina
+            }
+        }
+
+        // Controlla collisione a intervalli regolari
+        setInterval(checkCollision, 100);
+
+        let currentScroll = document.body.scrollHeight - window.innerHeight; // Inizio dal basso
+        const erbaLimit = 0; // Punto limite (altezza dove si ferma lo scroll)
+        const scrollStep = 20; // Pixel di spostamento a ogni intervallo
+        const scrollSpeed = 40; // Tempo tra uno spostamento e l'altro (in ms)
+        let isScrolling = false;
+
+        // Scorri inizialmente in fondo
+        window.scrollTo(0, currentScroll);
+
+        // Funzione per iniziare il movimento verso l'alto
+        function startScrolling() {
+            if (isScrolling) return; // Evita doppi avvii
+            isScrolling = true;
+            const interval = setInterval(() => {
+                if (currentScroll > erbaLimit) {
+                    currentScroll -= scrollStep; // Muovi verso l'alto
+                    window.scrollTo(0, currentScroll); // Scroll della finestra
+                } else {
+                    clearInterval(interval); // Ferma lo scroll al limite
+                    isScrolling = false;
+                }
+            }, scrollSpeed);
+        }
+
+        // Gestione tasto "w" per avviare lo scroll e cambiare immagine
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'w') {
+                gif.src = "camminata.gif"; // Cambia immagine del personaggio con la GIF animata
+                startScrolling(); // Avvia lo scroll
+            }
+        });
+    </script>
+</body>
+</html>

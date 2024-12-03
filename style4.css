@@ -1,0 +1,28 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: black; /* Sfondo nero */
+    overflow: hidden;
+}
+ 
+#loadingScreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+ 
+#loadingScreen img {
+    width: 100%;  /* Adatta la larghezza al 100% dello schermo */
+    height: 100%; /* Adatta l'altezza al 100% dello schermo */
+    object-fit: cover; /* Ritaglia o aggiusta mantenendo proporzioni */
+}

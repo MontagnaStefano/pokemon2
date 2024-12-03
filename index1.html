@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Genera Pokémon</title>
+    <link rel="stylesheet" href="style23.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Caricamento della musica di sfondo in loop -->
+    <audio id="backgroundMusic" loop autoplay>
+        <source src="battletheme.mp3" type="audio/mpeg">
+        Il tuo browser non supporta il formato audio.
+    </audio>
+ 
+    <!-- Caricamento del suono per i pulsanti -->
+    <audio id="buttonSound" preload="auto">
+        <source src="buttonA.mp3" type="audio/mpeg">
+        Il tuo browser non supporta il formato audio.
+    </audio>
+ 
+    <div id="mainContainer">
+        <!-- Div per la Pokéball animata -->
+        <div id="pokeballAnimationContainer">
+            <img id="pokeballAnimation" src="pokeballs.gif" alt="Pokeball Animation" style="display: none;">
+        </div>
+   
+        <button id="run">Run</button>
+        <div id="pokemonDetailsContainer">
+            <img id="pokemonSprite" src="" alt="Pokemon Sprite" style="display: none;">
+            <div id="pokemonOverlay">
+                <p id="pokemonName"></p>
+            </div>
+        </div>
+        <div id="buttonContainer">
+            <button id="generatePokemon">Find Pokémon</button>
+            <a>     </a><button id="catch">Catch Pokémon</button>
+            <a>     </a><a href="pokedex.html"><button id="viewPokedex">Open Pokédex</button></a>
+        </div>
+    </div>
+   
+    <script src="script.js"></script>
+</body>
+</html>

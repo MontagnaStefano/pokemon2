@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokemon Sfondo con Testo</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url('pika.png'); /* Sfondo principale */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end; /* Posiziona il contenuto in basso */
+        }
+
+        #press-enter {
+            margin-bottom: 2%; /* Regola la distanza dal bordo inferiore */
+            text-align: center;
+        }
+
+        img {
+            width: 1000px; /* Dimensione grande */
+            max-width: 100%; /* Adattamento al viewport */
+            height: auto; /* Mantieni le proporzioni */
+            cursor: pointer; /* Cambia il cursore su hover */
+            margin-left: 40px; /* Sposta l'immagine leggermente a destra */
+        }
+    </style>
+</head>
+<body>
+    <audio id="buttonSound" preload="auto">
+        <source src="traccia1.mp3" type="audio/mpeg">
+        Il tuo browser non supporta il formato audio.
+    </audio>
+    <div id="press-enter">
+        <img src="start.png" alt="Press Enter" id="start-button">
+    </div>
+
+    <script>
+        // Funzione per reindirizzare l'utente a un'altra pagina
+        function goToPage() {
+            const destination = "index.html"; // Imposta il percorso corretto
+            console.log("Navigating to:", destination); // Log per il debug
+            window.location.href = destination; // Reindirizzamento
+        }
+
+        // Assicurati che il DOM sia completamente caricato prima di aggiungere l'evento
+        document.addEventListener("DOMContentLoaded", function() {
+            // Aggiungi un evento per il clic sull'immagine
+            document.getElementById("start-button").addEventListener("click", goToPage);
+
+            // Aggiungi un evento per intercettare il tasto "Enter"
+            document.addEventListener("keydown", function(event) {
+                if (event.key === "Enter") {
+                    goToPage();
+                }
+            });
+        });
+        
+    </script>
+</body>
+</html>
+
+ 

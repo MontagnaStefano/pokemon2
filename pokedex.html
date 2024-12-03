@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Il mio Pokédex</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+    
+    <!-- Caricamento della musica di sfondo in loop -->
+    <audio id="backgroundMusic" loop autoplay>
+        <source src="relaxtheme.mp3" type="audio/mpeg">
+        Il tuo browser non supporta il formato audio.
+    </audio>
+
+    <div id="backHome">
+        <a href="index1.html"><button id="backHomeButton">Back to the Battelfield</button></a>
+    </div>
+    <div>
+        <div>
+            <div id="titleContainer">
+                <h1 id="title">MY POKÉDEX</h1>
+            </div>
+            <div id="pokedexListContainer">
+                <section id="pokedex-list" class="grid"></section>
+            </div>
+        </div>
+    </div>
+
+    <script src="pokedex.js"></script>
+</body>
+</html>

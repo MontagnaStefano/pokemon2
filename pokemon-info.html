@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informazioni Pokémon</title>
+    <link rel="stylesheet" href="style3.css">
+</head>
+<body>
+
+  <!-- Caricamento della musica di sfondo in loop -->
+  <audio id="backgroundMusic" loop autoplay>
+    <source src="relaxtheme2.mp3" type="audio/mpeg">
+    Il tuo browser non supporta il formato audio.
+</audio>
+
+    <div id="infoContainer">
+    <div id="pokemonInfo">
+        <img id="pokemonSprite" src="" alt="Pokemon Sprite">
+        <h1 id="pokemonName"></h1>
+        <div id="pokemonDetails">
+            <div id="types">
+                <h2>Types:</h2>
+                <ul id="typeList"></ul>
+            </div>
+            <div id="abilities">
+                <h2>Abilities:</h2>
+                <ul id="abilityList"></ul>
+            </div>
+            
+        </div>
+        <div id="stat-container">
+            <h2>Stats:</h2>
+            <ul id="statList"></ul>
+        </div>
+    </div>
+
+    <button id="backButton">Back to the Pokédex</button>
+</div>
+    </div>
+
+    <script src="pokemon-info.js"></script>
+</body>
+</html>
